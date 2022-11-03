@@ -15,29 +15,34 @@ class MyApp extends StatelessWidget {
     return NeumorphicApp(
       title: "Calculator",
       home: Scaffold(
-        appBar: NeumorphicAppBar(leading: NeumorphicCloseButton(onPressed: (){},),),
-        backgroundColor: Colors.amber,
+        appBar: NeumorphicAppBar(leading: NeumorphicCloseButton(onPressed: (){},style: NeumorphicStyle(depth: 5),),),
         body: Column(
           children: [
-            Neumorphic(
-              margin: EdgeInsets.all(20),
-              child: Container(
-                height: 100,
-                width: 400,
-                decoration: BoxDecoration(border: Border.all(color: Colors.black12,width: 5,)
-                ), child: TextField(cursorColor:Colors.green,controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none)),
-              ),
+            // Neumorphic(
+            //   margin: EdgeInsets.all(20),
+            //   child: Container(
+            //     height: 120,
+            //     width: 400,
+            //     decoration: BoxDecoration(border: Border.all(color: Colors.white,width: 5,)
+            //     ), child: TextField(cursorColor:Colors.green,controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none)),
+            //   ),
+            // ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: InputDecorator(decoration: InputDecoration(contentPadding: EdgeInsets.all(40),counter: Text("0/0"),border: OutlineInputBorder(),fillColor: Colors.green),
+                child: Text("Junaid"),),
             ),
             Expanded(
               child: GridView.count(
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 0,
                 crossAxisCount: 3,
                 shrinkWrap: true,
                 children: [
-                NeumorphicButton(
 
-                  margin: EdgeInsets.all(15),
+                NeumorphicButton(
+                  margin: EdgeInsets.all(20),
+                  style: NeumorphicStyle(border: NeumorphicBorder(color: Colors.amber,width: 2),boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(100))),
                   provideHapticFeedback: true,
                   onPressed: (){},child: Text("1",style: TextStyle(fontSize: 50),textAlign: TextAlign.center,),),
                 NeumorphicButton(margin: EdgeInsets.all(15),
@@ -56,10 +61,10 @@ class MyApp extends StatelessWidget {
                   onPressed: (){},child: Text("8",style: TextStyle(fontSize: 50),textAlign: TextAlign.center,),),
                 NeumorphicButton(margin: EdgeInsets.all(15),
                   onPressed: (){},child: Text("9",style: TextStyle(fontSize: 50),textAlign: TextAlign.center,),),
-                NeumorphicButton(margin: EdgeInsets.all(15),
+                  NeumorphicButton(margin: EdgeInsets.all(15),
+                    onPressed: (){},child: Text(".",style: TextStyle(fontSize: 50),textAlign: TextAlign.center,),),
+                  NeumorphicButton(margin: EdgeInsets.all(15),
                   onPressed: (){},child: Text("0",style: TextStyle(fontSize: 50),textAlign: TextAlign.center,),),
-                NeumorphicButton(margin: EdgeInsets.all(15),
-                  onPressed: (){},child: Text(".",style: TextStyle(fontSize: 50),textAlign: TextAlign.center,),),
                 NeumorphicButton(margin: EdgeInsets.all(15),
                   onPressed: (){},child: Text("c",style: TextStyle(fontSize: 50),textAlign: TextAlign.center,),),
                 ],
