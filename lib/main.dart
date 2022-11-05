@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
 
                     MyButton(text: "0",onPressed: (){},),
                     MyButton(text: ".",onPressed: (){},),
-                    MyButton(text: "c",onPressed: (){},),
+                    MyButton(text: "c",onPressed: (){}),
 
                     MyButton(text: "*",onPressed: (){},color: Colors.amber.shade300,),
 
