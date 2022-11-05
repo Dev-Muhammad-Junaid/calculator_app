@@ -1,7 +1,10 @@
 import 'package:calculator_app/display_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+
+import 'custom_widgets/MyButton.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,185 +40,41 @@ class MyApp extends StatelessWidget {
               //     ), child: TextField(cursorColor:Colors.green,controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none)),
               //   ),
               // ),
-              ResultDisplay(text: "Junaid",),
+              ResultDisplay(text: "0",),
               Expanded(
+                flex: 3,
                 child: GridView.count(
                   padding: EdgeInsets.all(20),
                   crossAxisSpacing:10,
-                  crossAxisCount: 3,
-                  shrinkWrap: true,
+                  crossAxisCount: 4,
                   children: [
-                    NeumorphicButton(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "1",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "2",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "3",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "4",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "5",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "6",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "7",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "8",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "9",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        ".",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "0",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    NeumorphicButton(
-                      margin:
-                      EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(20))),
-                      provideHapticFeedback: true,
-                      onPressed: () {},
-                      child: Text(
-                        "c",
-                        style: TextStyle(fontSize: 40,color: Colors.orange),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+                    MyButton(text: "1",onPressed: (){},),
+                    MyButton(text: "2",onPressed: (){},),
+                    MyButton(text: "3",onPressed: (){},),
+
+                    MyButton(text: "+",onPressed: (){},color: Colors.amber.shade300,),
+
+                    MyButton(text: "4",onPressed: (){},),
+                    MyButton(text: "5",onPressed: (){},),
+                    MyButton(text: "6",onPressed: (){},),
+
+                    MyButton(text: "-",onPressed: (){},color: Colors.amber.shade300,),
+
+                    MyButton(text: "7",onPressed: (){},),
+                    MyButton(text: "8",onPressed: (){},),
+                    MyButton(text: "9",onPressed: (){},),
+
+                    MyButton(text: "/",onPressed: (){},color: Colors.amber.shade300,),
+
+                    MyButton(text: "0",onPressed: (){},),
+                    MyButton(text: ".",onPressed: (){},),
+                    MyButton(text: "c",onPressed: (){},),
+
+                    MyButton(text: "*",onPressed: (){},color: Colors.amber.shade300,),
+
                   ],
                 ),
-              )
+              ),
             ],
           )),
       debugShowCheckedModeBanner: false,
