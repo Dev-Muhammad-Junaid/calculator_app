@@ -1,3 +1,4 @@
+import 'package:calculator_app/display_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
       title: "Calculator",
       home: Scaffold(
           appBar: NeumorphicAppBar(
+            actions: [
+              NeumorphicRadio(child: Icon(Icons.nightlight_outlined),)],
             leading: NeumorphicCloseButton(
               onPressed: () {},
               style: NeumorphicStyle(depth: 5),
@@ -34,22 +37,11 @@ class MyApp extends StatelessWidget {
               //     ), child: TextField(cursorColor:Colors.green,controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none)),
               //   ),
               // ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: InputDecorator(
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(40),
-                      counter: Text("0/0"),
-                      border: OutlineInputBorder(),
-                      fillColor: Colors.green),
-                  child: TextField(controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none),cursorHeight: 40,),
-                ),
-              ),
+              ResultDisplay(text: "Junaid",),
               Expanded(
                 child: GridView.count(
                   padding: EdgeInsets.all(20),
                   crossAxisSpacing:10,
-
                   crossAxisCount: 3,
                   shrinkWrap: true,
                   children: [
