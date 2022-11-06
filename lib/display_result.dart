@@ -20,9 +20,9 @@ class ResultDisplay extends StatelessWidget {
       //   child: TextField(controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none),cursorHeight: 40,),
       // ),
       child: Neumorphic(
+        style: NeumorphicStyle(depth:3,border: NeumorphicBorder(color: NeumorphicColors.darkBackground,width: 1)),
         child: Container(
             width: double.infinity,
-            decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/Calculator.png"),fit:BoxFit.cover)),
             height: 120,
             child: Container(
                 alignment: Alignment.bottomRight,

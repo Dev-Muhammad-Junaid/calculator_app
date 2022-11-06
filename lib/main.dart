@@ -50,25 +50,25 @@ class MyApp extends StatelessWidget {
                     MyButton(text: "2",onPressed: (){},),
                     MyButton(text: "3",onPressed: (){},),
 
-                    MyButton(text: "+",onPressed: (){},color: Colors.amber.shade300,),
+                    MyButton(text: "+",onPressed: (){},color: Colors.amber.shade600,),
 
                     MyButton(text: "4",onPressed: (){},),
                     MyButton(text: "5",onPressed: (){},),
                     MyButton(text: "6",onPressed: (){},),
 
-                    MyButton(text: "-",onPressed: (){},color: Colors.amber.shade300,),
+                    MyButton(text: "-",onPressed: (){},color: Colors.amber.shade600,),
 
                     MyButton(text: "7",onPressed: (){},),
                     MyButton(text: "8",onPressed: (){},),
                     MyButton(text: "9",onPressed: (){},),
 
-                    MyButton(text: "/",onPressed: (){},color: Colors.amber.shade300,),
+                    MyButton(text: "/",onPressed: (){},color: Colors.amber.shade600,),
 
                     MyButton(text: "0",onPressed: (){},),
                     MyButton(text: ".",onPressed: (){},),
                     MyButton(text: "c",onPressed: (){}),
 
-                    MyButton(text: "*",onPressed: (){},color: Colors.amber.shade300,),
+                    MyButton(text: "*",onPressed: (){},color: Colors.amber.shade600,),
 
                   ],
                 ),
