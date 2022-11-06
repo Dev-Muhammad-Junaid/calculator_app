@@ -23,11 +23,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           appBar: NeumorphicAppBar(
             actions: [
-              NeumorphicRadio(child: Icon(Icons.nightlight_outlined),)],
-            leading: NeumorphicCloseButton(
-              onPressed: () {},
-              style: NeumorphicStyle(depth: 5),
-            ),
+              NeumorphicRadio(child: Icon(Icons.nightlight_outlined),),
+            ],
+            leading: InkWell(onTap:(){},child: Icon(FlutterIcons.history_mco))
           ),
           body: Column(
             children: [
