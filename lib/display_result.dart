@@ -5,8 +5,6 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 class ResultDisplay extends StatelessWidget {
   String text;
   ResultDisplay({required this.text});
-
-
   @override
   Widget build(BuildContext context) {
     return  Padding(
@@ -21,18 +19,29 @@ class ResultDisplay extends StatelessWidget {
       // ),
       child: Neumorphic(
         style: NeumorphicStyle(depth:3,border: NeumorphicBorder(color: NeumorphicColors.darkBackground,width: 1)),
-        child: Container(
-            width: double.infinity,
-            height: 120,
-            child: Container(
-                alignment: Alignment.bottomRight,
-                padding: EdgeInsets.only(right: 24, bottom: 24),
-                child: Text(text, style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 34
-                  ),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10),
+                alignment:Alignment.bottomRight,
+                width: double.infinity,
+                child: Text(text),
+            ),
+            Container(
+                width: double.infinity,
+                height: 80,
+                child: Container(
+                    alignment: Alignment.bottomRight,
+                    padding: EdgeInsets.only(right: 24, bottom: 24),
+                    child: Text(text, style: TextStyle(
+                      overflow: TextOverflow.clip,
+                          color: Colors.black,
+                          fontSize: 34,
+                      ),
+                    )
                 )
-            )
+            ),
+          ],
         ),
       ),
     );

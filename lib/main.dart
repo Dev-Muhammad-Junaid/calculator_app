@@ -10,10 +10,17 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  NeumorphicStyle neumorphicStyle = NeumorphicStyle();
+class MyApp extends StatefulWidget {
 
   MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+String text="0";
+  NeumorphicStyle neumorphicStyle = NeumorphicStyle();
 
   // This widget is the root of your application.
   @override
@@ -38,7 +45,7 @@ class MyApp extends StatelessWidget {
               //     ), child: TextField(cursorColor:Colors.green,controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none)),
               //   ),
               // ),
-              ResultDisplay(text: "0",),
+              ResultDisplay(text: text),
               Expanded(
                 flex: 3,
                 child: GridView.count(
@@ -46,7 +53,15 @@ class MyApp extends StatelessWidget {
                   crossAxisSpacing:10,
                   crossAxisCount: 4,
                   children: [
-                    MyButton(text: "1",onPressed: (){},),
+                    MyButton(text: "1",onPressed: (){
+                      text="10";
+
+                      setState(() {
+                        text="20";
+
+                      });
+                      },
+                    ),
                     MyButton(text: "2",onPressed: (){},),
                     MyButton(text: "3",onPressed: (){},),
 
@@ -69,6 +84,10 @@ class MyApp extends StatelessWidget {
                     MyButton(text: "c",onPressed: (){}),
 
                     MyButton(text: "*",onPressed: (){},color: Colors.amber.shade600,),
+                    ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Tip"), onPressed: (){},avatar: Icon(Icons.calculate_outlined),elevation: 1),
+                    ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Sqrt"), onPressed: (){},avatar: Icon(FlutterIcons.square_root_mco),elevation: 1),
+                    ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Log"), onPressed: (){},avatar: Icon(FlutterIcons.ios_calculator_ion,),elevation: 1),
+                    MyButton(text: "=",onPressed: (){},color: Colors.amber.shade600),
 
                   ],
                 ),
@@ -76,6 +95,7 @@ class MyApp extends StatelessWidget {
             ],
           )),
       debugShowCheckedModeBanner: false,
+
     );
   }
 }

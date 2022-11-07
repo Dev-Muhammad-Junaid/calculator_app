@@ -16,10 +16,11 @@ class MyButton extends StatelessWidget {
         color: color,
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(20))),
       provideHapticFeedback: true,
+
       onPressed: () {onPressed;},
       child: Text(
         text,
-        style: TextStyle(fontSize: 30),
+        style: TextStyle(fontSize: 25),
         textAlign: TextAlign.center,
       ),
     );
