@@ -16,13 +16,8 @@ class MyButton extends StatelessWidget {
         color: color,
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(20))),
       provideHapticFeedback: true,
-
       onPressed: () {onPressed;},
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 25),
-        textAlign: TextAlign.center,
-      ),
+      child: AnimatedDefaultTextStyle(curve:Curves.bounceInOut,textAlign:TextAlign.center,child: Text(text), style: TextStyle(color: NeumorphicColors.defaultTextColor,fontSize: 25), duration: Duration(seconds: 1),)
     );
   }
 }

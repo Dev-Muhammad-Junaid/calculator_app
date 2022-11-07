@@ -9,6 +9,10 @@ import 'custom_widgets/MyButton.dart';
 void main() {
   runApp(MyApp());
 }
+void operatorPressed(String operator) {}
+void numberPressed(int number) {}
+void calculateResult() {}
+void clear() {}
 
 class MyApp extends StatefulWidget {
 
@@ -36,15 +40,6 @@ String text="0";
           ),
           body: Column(
             children: [
-              // Neumorphic(
-              //   margin: EdgeInsets.all(20),
-              //   child: Container(
-              //     height: 120,
-              //     width: 400,
-              //     decoration: BoxDecoration(border: Border.all(color: Colors.white,width: 5,)
-              //     ), child: TextField(cursorColor:Colors.green,controller: TextEditingController(),decoration: InputDecoration(border: InputBorder.none)),
-              //   ),
-              // ),
               ResultDisplay(text: text),
               Expanded(
                 flex: 3,
@@ -53,46 +48,40 @@ String text="0";
                   crossAxisSpacing:10,
                   crossAxisCount: 4,
                   children: [
-                    MyButton(text: "1",onPressed: (){
-                      text="10";
+                    MyButton(text: "1",onPressed: ()=> numberPressed(1),),
+                    MyButton(text: "2",onPressed: ()=> numberPressed(2),),
+                    MyButton(text: "3",onPressed: ()=> numberPressed(3),),
 
-                      setState(() {
-                        text="20";
+                    MyButton(text: "+",onPressed: ()=>operatorPressed("+"),color: Colors.amber.shade600,),
 
-                      });
-                      },
-                    ),
-                    MyButton(text: "2",onPressed: (){},),
-                    MyButton(text: "3",onPressed: (){},),
+                    MyButton(text: "4",onPressed: ()=> numberPressed(4),),
+                    MyButton(text: "5",onPressed: ()=> numberPressed(5),),
+                    MyButton(text: "6",onPressed: ()=> numberPressed(6),),
 
-                    MyButton(text: "+",onPressed: (){},color: Colors.amber.shade600,),
+                    MyButton(text: "-",onPressed: ()=>operatorPressed("-"),color: Colors.amber.shade600,),
 
-                    MyButton(text: "4",onPressed: (){},),
-                    MyButton(text: "5",onPressed: (){},),
-                    MyButton(text: "6",onPressed: (){},),
+                    MyButton(text: "7",onPressed: ()=> numberPressed(7),),
+                    MyButton(text: "8",onPressed: ()=> numberPressed(8),),
+                    MyButton(text: "9",onPressed: ()=> numberPressed(9),),
 
-                    MyButton(text: "-",onPressed: (){},color: Colors.amber.shade600,),
+                    MyButton(text: "/",onPressed: ()=>operatorPressed("/"),color: Colors.amber.shade600,),
 
-                    MyButton(text: "7",onPressed: (){},),
-                    MyButton(text: "8",onPressed: (){},),
-                    MyButton(text: "9",onPressed: (){},),
+                    MyButton(text: "0",onPressed: ()=> numberPressed(0),),
+                    MyButton(text: ".",onPressed: ()=>operatorPressed("."),),
+                    MyButton(text: text=="0"?"C":"AC",onPressed: (){}),
 
-                    MyButton(text: "/",onPressed: (){},color: Colors.amber.shade600,),
-
-                    MyButton(text: "0",onPressed: (){},),
-                    MyButton(text: ".",onPressed: (){},),
-                    MyButton(text: "c",onPressed: (){}),
-
-                    MyButton(text: "*",onPressed: (){},color: Colors.amber.shade600,),
+                    MyButton(text: "*",onPressed: ()=>operatorPressed("*"),color: Colors.amber.shade600,),
                     ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Tip"), onPressed: (){},avatar: Icon(Icons.calculate_outlined),elevation: 1),
                     ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Sqrt"), onPressed: (){},avatar: Icon(FlutterIcons.square_root_mco),elevation: 1),
                     ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Log"), onPressed: (){},avatar: Icon(FlutterIcons.ios_calculator_ion,),elevation: 1),
-                    MyButton(text: "=",onPressed: (){},color: Colors.amber.shade600),
+                    MyButton(text: "=",onPressed: ()=>operatorPressed("="),color: Colors.amber.shade600,),
 
                   ],
                 ),
               ),
+
             ],
+
           )),
       debugShowCheckedModeBanner: false,
 
