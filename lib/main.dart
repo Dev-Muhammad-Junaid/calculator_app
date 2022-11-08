@@ -9,10 +9,7 @@ import 'custom_widgets/MyButton.dart';
 void main() {
   runApp(MyApp());
 }
-void operatorPressed(String operator) {}
-void numberPressed(int number) {}
-void calculateResult() {}
-void clear() {}
+
 
 class MyApp extends StatefulWidget {
 
@@ -23,7 +20,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-String text="0";
+String? text;
+int? firstOperand;
+String? operator;
+int? secondOperand;
+int? result;
   NeumorphicStyle neumorphicStyle = NeumorphicStyle();
 
   // This widget is the root of your application.
@@ -40,7 +41,7 @@ String text="0";
           ),
           body: Column(
             children: [
-              ResultDisplay(text: text),
+              ResultDisplay(text: _getDisplayText()),
               Expanded(
                 flex: 3,
                 child: GridView.count(
@@ -68,13 +69,13 @@ String text="0";
 
                     MyButton(text: "0",onPressed: ()=> numberPressed(0),),
                     MyButton(text: ".",onPressed: ()=>operatorPressed("."),),
-                    MyButton(text: text=="0"?"C":"AC",onPressed: (){}),
+                    MyButton(text: text=="0"?"C":"AC",onPressed: ()=>clear(),),
 
                     MyButton(text: "*",onPressed: ()=>operatorPressed("*"),color: Colors.amber.shade600,),
                     ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Tip"), onPressed: (){},avatar: Icon(Icons.calculate_outlined),elevation: 1),
                     ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Sqrt"), onPressed: (){},avatar: Icon(FlutterIcons.square_root_mco),elevation: 1),
                     ActionChip(backgroundColor: NeumorphicColors.background,label: Text("Log"), onPressed: (){},avatar: Icon(FlutterIcons.ios_calculator_ion,),elevation: 1),
-                    MyButton(text: "=",onPressed: ()=>operatorPressed("="),color: Colors.amber.shade600,),
+                    MyButton(text: "=",onPressed: ()=>calculateResult,color: Colors.amber.shade600,),
 
                   ],
                 ),
@@ -87,4 +88,96 @@ String text="0";
 
     );
   }
+
+void operatorPressed(String operator) {
+  setState(() {
+    if (firstOperand == null) {
+      firstOperand = 0;
+    }
+    this.operator = operator;
+  });
 }
+void numberPressed(int number) {
+  setState(() {
+    if (result != null) {
+      result = null;
+      firstOperand = number;
+      return;
+    }
+    if (firstOperand == null) {
+      firstOperand = number;
+      return;
+    }
+    if (operator == null) {
+      firstOperand = int.parse('$firstOperand$number');
+      return;
+    }
+    if (secondOperand == null) {
+      secondOperand = number;
+      return;
+    }
+
+    secondOperand = int.parse('$secondOperand$number');
+  });
+}
+void calculateResult() {
+  if (operator == null || secondOperand == null) {
+    return;
+  }
+  setState(() {
+    switch (operator) {
+      case '+':
+        result = firstOperand! + secondOperand!;
+        break;
+      case '-':
+        result = firstOperand! - secondOperand!;
+        break;
+      case '*':
+        result = firstOperand! * secondOperand!;
+        break;
+      case '/':
+        if (secondOperand! == 0) {
+          return;
+        }
+        result = firstOperand! ~/ secondOperand!;
+        break;
+    }
+
+    firstOperand = result;
+    operator = null;
+    secondOperand = null;
+    result = null;
+  });
+}
+void clear() {
+  setState(() {
+    result = null;
+    operator = null;
+    secondOperand = null;
+    firstOperand = null;
+  });
+}
+
+String _getDisplayText() {
+  if (result != null) {
+    return '$result';
+  }
+
+  if (secondOperand != null) {
+    return '$firstOperand$operator$secondOperand';
+  }
+
+  if (operator != null) {
+    return '$firstOperand$operator';
+  }
+
+  if (firstOperand != null) {
+    return '$firstOperand';
+  }
+
+  return '0';
+}
+
+}
+
+

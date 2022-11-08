@@ -3,8 +3,8 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 
 class ResultDisplay extends StatelessWidget {
-  String text="10";
-  final int result=0;
+  String? text="10";
+  int? result;
 
   ResultDisplay({required this.text});
   @override
@@ -18,12 +18,10 @@ class ResultDisplay extends StatelessWidget {
             AnimatedContainer(
               color: Colors.black12,
               duration: Duration(seconds: 1),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                  alignment:Alignment.bottomRight,
-                  width: double.infinity,
-                  child: Text(text),
-              ),
+              padding: EdgeInsets.all(10),
+              alignment:Alignment.bottomRight,
+              width: double.infinity,
+             child: Text(text!),
             ),
             Container(
                 width: double.infinity,
@@ -31,7 +29,7 @@ class ResultDisplay extends StatelessWidget {
                 child: Container(
                     alignment: Alignment.bottomRight,
                     padding: EdgeInsets.only(right: 24, bottom: 24),
-                    child: Text(text, style: TextStyle(
+                    child: Text(text!, style: TextStyle(
                       overflow: TextOverflow.clip,
                           color: Colors.black,
                           fontSize: 34,
